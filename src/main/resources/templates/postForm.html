@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+    <head>
+        <title>Postagens</title>
+        <meta charset="UTF-8"/>
+
+        <!-- css do bootstrap -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"/>
+
+
+
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.js"></script>
+
+    </head>
+
+
+    <body>
+        <!-- o ${posts} eh o criado dentro do controle ja o post eh criado do nada -->
+        <!--   <div th:each="post : ${posts}">
+               
+               <div class="divPostagemMensagem">
+                                          <p>
+                                                   <span th:text="${post.texto}"></span>
+                                                   <br/>
+                                                   
+                                           </p>
+                                   </div>
+               
+           </div> -->
+        <header>
+
+            <nav class="navbar navbar-light bg-light">
+                <span class="navbar-brand mb-0 h1" style="font-weight: bold;" >BlogSpring</span>
+
+            </nav>
+        </header>
+
+
+        <section>
+
+            <div class="container" style="width: 60%; padding-bottom: 30px;">
+
+                <nav arial-label="breadcrumb">
+
+                    <ol class="breadcrumb" style="background-color: white; padding-left: 0px;">
+
+                        <li class="breadcrumb-item" aria-current="page"><a href="/posts">Posts</a></li>   
+                        <li class="breadcrumb-item active" aria-current="page">Novo Post</li> 
+
+                    </ol>   
+
+                </nav>
+
+                <div>
+                    <!-- inclui o html mensagemValidacao aqui se tivesse em outra pasta seria pasta/mensagemValidacao -->
+                    <th:block th:include="mensagemValidacao"></th:block>
+                    <form method="post">
+
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="titulo" placeholder="titulo *" />    
+
+                        </div>
+
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="autor" placeholder="autor *" />    
+
+                        </div>
+
+                        <textarea id="summernote" type="text" class="form-control" name="texto" placeholder="texto *"> </textarea>
+
+                        <small class="form-text text-muted">(*)Campos obrigatorios</small>
+
+
+                        <button type="submit" class="btn btn-primary" style="margin-top: 10px;">Publicar</button>
+                        <a href="/posts" class="btn bg-light" role="button" style="margin-top: 10px;">Cancelar</a>
+
+                    </form>   
+
+
+                </div>
+
+            </div>  
+
+
+        </section> 
+
+        <!-- adiciona o script do summernote -->
+        <script>
+            $('#summernote').summernote(
+                    {placeholder: 'Texto *',
+                        tabsize: 2,
+                        height: 300
+                    });
+        </script>
+
+
+
+
+    </body>
+</html>
