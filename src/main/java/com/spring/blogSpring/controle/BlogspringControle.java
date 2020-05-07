@@ -74,7 +74,12 @@ public class BlogspringControle {
 
     }
     
-    
+   @RequestMapping(value = "/", method = RequestMethod.GET)
+   public String telaInicial(){
+       
+    return "index";  
+       
+   }
     
 
 }
